@@ -1,0 +1,200 @@
+swagger: "2.0"
+info:
+  description: Swagger for Rest API
+  version: "1.0.0"
+  title: Ticket Manager Service
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /aiops
+
+# Paths supported by the server application
+paths:
+  /create/student:
+    post:
+      tags:
+      - "CREATE"
+      summary: "insert operation"
+      description: "insert operation"
+      operationId: orm.insert1  #method name in the main file
+      parameters:
+        - name: id
+          in: formData
+          type: integer
+          required: True
+        - name: name
+          in: formData
+          type: string
+          required: True
+        - name: class_id
+          in: formData
+          type: integer
+          required: True
+      responses:
+        500:
+          description: Server error
+        200:
+          description: Successful
+          schema:
+            type: string
+
+
+
+  /create/class:
+    post:
+      tags:
+      - "CREATE"
+      summary: "insert operation"
+      description: "insert operation"
+      operationId: orm.insert2 #method name in the main file
+      parameters:
+        - name: id
+          in: formData
+          type: integer
+          required: True
+        - name: name
+          in: formData
+          type: string
+          required: True
+        - name: class_leader
+          in: formData
+          type: string
+          required: True
+      responses:
+        500:
+          description: Server error
+        200:
+          description: Successful
+          schema:
+            type: string
+
+
+  /read/student:
+    get:
+      tags:
+      - "READ"
+      summary: "read opearation"
+      description: "read opearation"
+      operationId: orm.read1
+      responses:
+        500:
+          description: Server error
+        200:
+          description: Successful
+          schema:
+            type: string
+
+
+  /read/class:
+    get:
+      tags:
+        - "READ"
+      summary: "read opearation"
+      description: "read opearation"
+      operationId: orm.read2
+      responses:
+        500:
+          description: Server error
+        200:
+          description: Successful
+          schema:
+            type: string
+
+
+  /update/class:
+      put:
+        tags:
+          - "UPDATE"
+        summary: "update opearation"
+        description: "update opearation"
+        operationId: orm.update2
+        parameters:
+          - name: id
+            in: formData
+            type: integer
+            required: True
+          - name: name
+            in: formData
+            type: string
+            required: True
+          - name: class_leader
+            in: formData
+            type: string
+            required: True
+        responses:
+          500:
+            description: Server error
+          200:
+            description: Successful
+            schema:
+              type: string
+
+
+  /update/student:
+    put:
+      tags:
+        - "UPDATE"
+      summary: "update opearation"
+      description: "update opearation"
+      operationId: orm.update1
+      parameters:
+        - name: id
+          in: formData
+          type: integer
+          required: True
+        - name: name
+          in: formData
+          type: string
+          required: True
+        - name: class_id
+          in: formData
+          type: integer
+          required: True
+      responses:
+        500:
+          description: Server error
+        200:
+          description: Successful
+          schema:
+            type: string
+
+  /delete/student:
+    delete:
+      tags:
+        - "DELETE"
+      summary: "delete opearation"
+      description: "delete opearation"
+      operationId: orm.delete1
+      parameters:
+        - name: id
+          in: formData
+          type: integer
+          required: True
+      responses:
+        500:
+          description: Server error
+        200:
+          description: Successful
+          schema:
+            type: string
+  /delete/class:
+    delete:
+      tags:
+        - "DELETE"
+      summary: "delete opearation"
+      description: "delete opearation"
+      operationId: orm.delete2
+      parameters:
+        - name: id
+          in: formData
+          type: integer
+          required: True
+      responses:
+        500:
+          description: Server error
+        200:
+          description: Successful
+          schema:
+            type: string
